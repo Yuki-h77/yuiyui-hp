@@ -1,0 +1,24 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.c-button--cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-cta_btn);
+    color: var(--color-white);
+    font-weight: bold;
+    font-size: var(--font-size-md);
+    padding: 5px 0;
+    border-radius: 100px;
+    width: 100%;
+    max-width: 100%;
+    transition: opacity 0.3s;
+
+    @include pc {
+
+        @include hover {
+            opacity: 0.7;
+        }
+    }
+}
