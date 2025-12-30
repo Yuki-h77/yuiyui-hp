@@ -172,12 +172,17 @@
             width: auto;
             background-color: var(--color-cta_btn);
             color: var(--color-white);
+            font-size: var(--font-size-base);
             font-weight: 500;
             padding: 5px 16px;
             border-radius: 100px;
+
+            @include hover {
+                opacity: 0.7;
+            }
         }
 
-        &__nav {
+        &__link {
             @include pc {
                 width: 160px;
                 margin: 0 auto;
@@ -306,7 +311,7 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 110%;
+            width: 113px;
             height: 1px;
             background-color: var(--color-primary);
         }
@@ -434,6 +439,12 @@
     &__btn {
         text-align: center;
         margin-top: 60px;
+
+        @include pc {
+            @include hover {
+                opacity: 0.7;
+            }
+        }
     }
 }
 
@@ -897,7 +908,7 @@
 
             span {
                 font-size: var(--font-size-xs);
-                font-weight: normal;
+                font-weight: bold;
             }
         }
     }
@@ -918,7 +929,7 @@
 
         span {
             font-size: 12px;
-            font-weight: normal;
+            font-weight: bold;
             margin-left: 2px;
         }
 
@@ -991,5 +1002,102 @@
         @include pc {
             font-size: 15px;
         }
+    }
+}
+
+
+
+
+
+/* ==========================================================================
+   Page: About 
+   ========================================================================== */
+.p-about {
+    margin-top: 150px;
+    color: var(--color-text);
+    line-height: var(--line-height-md);
+
+    &__inner {
+        max-width: 600px; // 文章を読みやすくするため少し細めに
+        margin: 0 auto;
+        padding: 0 var(--space-md);
+        margin-bottom: 60px;
+    }
+
+    &__head {
+        margin-bottom: var(--space-xxxl);
+    }
+
+    &__sub-title {
+        display: block;
+        color: var(--color-primary);
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-sm);
+        position: relative;
+        padding-left: 40px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 30px;
+            height: 1px;
+            background-color: var(--color-primary);
+        }
+    }
+
+    &__main-title {
+        font-size: var(--font-size-lg);
+        font-weight: bold;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xl);
+    }
+
+    &__lead {
+        font-size: var(--font-size-md);
+
+    }
+
+    &__text {
+        font-size: var(--font-size-base);
+    }
+
+    &__image {
+        width: 60%; // 画像は少し小さめに配置
+        margin: var(--space-lg) auto;
+
+        &:nth-of-type(odd) {
+            margin-right: auto;
+            margin-left: 15%;
+        }
+
+        // 2番目、4番目...（偶数）を右寄せ
+        &:nth-of-type(even) {
+            margin-left: auto;
+            margin-right: 5%;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+        }
+    }
+}
+
+// アニメーション用ベーススタイル
+.u-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

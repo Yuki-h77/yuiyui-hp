@@ -21,3 +21,24 @@ $(function () {
         $('body').css('overflow', '');
     });
 });
+
+
+$(function () {
+    const targets = $('.u-fade-up');
+
+    $(window).on('scroll', function () {
+        const scroll = $(window).scrollTop();
+        const windowHeight = $(window).height();
+
+        targets.each(function () {
+            const targetPos = $(this).offset().top;
+            // 画面の8割くらいの位置まで来たら発火
+            if (scroll > targetPos - windowHeight + 100) {
+                $(this).addClass('is-visible');
+            }
+        });
+    });
+
+    // 読み込み時にも一度実行（最初に見えている要素用）
+    $(window).trigger('scroll');
+});
